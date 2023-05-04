@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <h1>
         See recent Mails
     </h1>
@@ -24,15 +25,18 @@
                 })
                 .then(response => response.json())
                 .then(data => {
+                    if (data.count != localStorage.getItem("mailsCount")) {
+                        localStorage.setItem("mailsCount", data.count)
+                        alert("You have " + data.count + " new mails")
+                    }
                     console.log('Success:', data);
-                    document.getElementById("mailsCount").innerHTML = data.count;
+                    document.getElementById("mailsCount").innerHTML = localStorage.getItem("mailsCount");
                 })
                 .catch((error) => {
                     console.error('Error:', error);
                 });
         }
-        setInterval(getMailsCount, 10000);
-        getMailsCount()
+        // setInterval(getMailsCount, 10000);
     </script>
 
 </body>
