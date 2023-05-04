@@ -1,3 +1,11 @@
 
 To start webhook dev checker
 nylas webhook tunnel -f http://127.0.0.1:8000/api
+
+
+POST request
+
+curl -X POST -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}' http://localhost:8000/clientApi/ 
+
+
+
