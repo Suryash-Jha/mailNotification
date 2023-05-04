@@ -12,29 +12,29 @@
     <h1>
         See recent Mails
     </h1>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>From</th>
-                    <th>Subject</th>
-                    <th>Body</th>
-                    <th>Recieved At</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for mail in mails %}
-                <tr>
-                    <td>{{ mail.from }}</td>
-                    <td>{{ mail.subject }}</td>
-                    <td>{{ mail.body }}</td>
-                    <td>{{ mail.receivedAt }}</td>
+    <h2>Mails Count: <span id="mailsCount">0</span></h2>
+    <script>
+        function getMailsCount() {
+            fetch('http://127.0.0.1:8000/clientApi/',
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    document.getElementById("mailsCount").innerHTML = data.count;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+        setInterval(getMailsCount, 10000);
+        getMailsCount()
+    </script>
 
-                </tr>
-                {% endfor %}
-                <td>{{numb}}</td>
-            </tbody>
-        </table>
 </body>
 
 </html>
