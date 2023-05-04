@@ -12,6 +12,29 @@
     <h1>
         See recent Mails
     </h1>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>Subject</th>
+                    <th>Body</th>
+                    <th>Recieved At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mail in mails %}
+                <tr>
+                    <td>{{ mail.from }}</td>
+                    <td>{{ mail.subject }}</td>
+                    <td>{{ mail.body }}</td>
+                    <td>{{ mail.receivedAt }}</td>
+
+                </tr>
+                {% endfor %}
+                <td>{{numb}}</td>
+            </tbody>
+        </table>
 </body>
 
 </html>
