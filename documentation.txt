@@ -1,6 +1,6 @@
 
 To start webhook dev checker
-nylas webhook tunnel -f http://127.0.0.1:8000/api
+nylas webhook tunnel -f http://127.0.0.1:8000/api/
 
 
 POST request
