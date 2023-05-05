@@ -177,6 +177,7 @@ PyScreeze==0.1.28
 PySocks==1.7.1
 pytesseract==0.3.8
 python-dateutil==2.8.2
+python-decouple==3.8
 python-dotenv==1.0.0
 python-jwt==3.3.2
 pytweening==1.0.4
